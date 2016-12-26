@@ -1,0 +1,2 @@
+class TransltrError(Exception):
+    pass
