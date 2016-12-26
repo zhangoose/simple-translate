@@ -1,5 +1,6 @@
 simple-translate
 ====
+![travis](https://travis-ci.org/zhangoose/simple-translate.svg?branch=master)
 
 WIP
 

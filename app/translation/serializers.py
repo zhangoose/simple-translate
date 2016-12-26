@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from translation.models import Translation
+from app.translation.models import Translation
 
 
 class TranslationSerializer(serializers.ModelSerializer):

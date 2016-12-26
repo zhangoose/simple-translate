@@ -2,7 +2,7 @@ import pytest
 from model_mommy import mommy
 from freezegun import freeze_time
 
-from translation.serializers import TranslationSerializer
+from app.translation.serializers import TranslationSerializer
 
 
 def test_translation_serializer_from_data_success():

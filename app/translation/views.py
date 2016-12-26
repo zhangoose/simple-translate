@@ -1,7 +1,7 @@
 from rest_framework import viewsets, mixins
 
-from translation.serializers import TranslationSerializer
-from translation.models import Translation
+from app.translation.serializers import TranslationSerializer
+from app.translation.models import Translation
 
 
 class TranslationViewSet(mixins.RetrieveModelMixin,

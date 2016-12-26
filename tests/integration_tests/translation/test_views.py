@@ -7,7 +7,7 @@ from pytz import UTC
 from datetime import datetime
 import json
 
-from translation.models import Translation
+from app.translation.models import Translation
 
 
 @pytest.mark.django_db

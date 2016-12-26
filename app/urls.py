@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from translation.views import TranslationViewSet
+from app.translation.views import TranslationViewSet
 
 
 router = DefaultRouter()
