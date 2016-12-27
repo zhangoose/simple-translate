@@ -8,7 +8,7 @@
       </span>
     </p>
   </div>
-  <table ng-init="listTranslations()">
+  <table ng-init="listTranslations(); getLanguageMappings()">
     <tr>
       <th>Original Text</th>
       <th>Language Detected</th>
@@ -16,7 +16,8 @@
     </tr>
     <tr ng-repeat="translation in translationList">
       <td>[[ translation.original_text ]]</td>
-      <td>[[ translation.language ]]</td>
+      <td ng-hide="transltrError == false">[[ translation.language ]]</td>
+      <td ng-hide="transltrError == true">[[ languageMappings[translation.language] ]]</td>
       <td>[[ translation.translated_text ]]</td>
     </tr>
   </table>

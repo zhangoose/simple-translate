@@ -36,13 +36,3 @@ class Transltr(object):
 
         return response.json()
 
-    def get_languages_for_translate(self):
-        """
-        Sends a request to /getlanguagesfortranslate.
-        """
-        response = requests.get(self.BASE_URL + "/getlanguagesfortranslate")
-
-        if response.status_code != 200:
-            raise TransltrError()
-
-        return response.json()

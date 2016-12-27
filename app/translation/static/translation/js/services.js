@@ -21,3 +21,22 @@ angular.module('translationApp.services', ['ngResource'])
             }
         );
     })
+
+
+    .factory('Transltr', function($resource) {
+        var headers = {
+            "Content-Type": "application/json"
+        };
+
+        return $resource(
+            'http://www.transltr.org/api/getlanguagesfortranslate',
+            {},
+            {
+                'query': {
+                    method: 'GET',
+                    isArray: true,
+                    headers: headers
+                }
+            }
+        );
+    })
