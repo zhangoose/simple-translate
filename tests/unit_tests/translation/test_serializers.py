@@ -1,26 +1,29 @@
 import pytest
+import mock
 from model_mommy import mommy
 from freezegun import freeze_time
 
 from app.translation.serializers import TranslationSerializer
 
 
-def test_translation_serializer_from_data_success():
-    body = {
-        "original_text": "potatoes",
-        "translated_text": "molasses",
-        "language": "bird"
+@mock.patch("app.translation.serializers.Transltr.translate_to_en")
+def test_translation_serializer_from_data_success(mock_transltr):
+    mock_transltr.return_value = {
+        "from": "es",
+        "to": "en",
+        "text": "patatas",
+        "translationText": "Potatoes"
     }
-    expected_data = {
-        "original_text": "potatoes",
-        "translated_text": "molasses",
-        "language": "bird"
+    body = {
+        "original_text": "patatas",
+        "translated_text": "Potatoes",
+        "language": "es"
     }
 
     serializer = TranslationSerializer(data=body)
 
     assert serializer.is_valid() == True
-    assert serializer.data == expected_data
+    assert serializer.data == body
 
 
 def test_translation_serializer_from_data_failure():
