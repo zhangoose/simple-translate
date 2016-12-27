@@ -1,0 +1,51 @@
+body {
+    font-family: Helvetica, Arial;
+}
+
+.highlight {
+    background-color: #f8f9bc;
+    padding: 0.3em;
+}
+
+.error {
+    background-color: #f7a4ab;
+    padding: 0.3em;
+}
+
+/* ============ TRANSLATE =============== */
+
+.content > input {
+    width: 30%;
+    height: 2.4em;
+    font-size: 100%;
+}
+
+.content > button {
+    width: 10%;
+    height: 2.3em;
+    border: none;
+    background-color: #f8f9bc;
+    font-size: 100%;
+
+}
+
+
+/* ============ HISTORY TABLE =========== */
+
+.content > table {
+    width: 80%;
+    max-width: 80%;
+    text-align: left;
+}
+
+.content > table th {
+    background-color: #f8f9bc;
+}
+
+.content > table tr {
+    height: 2em;
+}
+
+.content > table tr:nth-child(odd) td {
+    background-color: #f8f9bc;
+}

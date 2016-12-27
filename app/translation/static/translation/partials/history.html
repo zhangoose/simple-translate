@@ -1,0 +1,23 @@
+<h1>History</h1>
+
+<div class="content">
+  <div ng-hide="error == false">
+    <p>
+      <span class="error">
+        Error: unable to get history at this time.
+      </span>
+    </p>
+  </div>
+  <table ng-init="listTranslations()">
+    <tr>
+      <th>Original Text</th>
+      <th>Language Detected</th>
+      <th>English Translation</th>
+    </tr>
+    <tr ng-repeat="translation in translationList">
+      <td>[[ translation.original_text ]]</td>
+      <td>[[ translation.language ]]</td>
+      <td>[[ translation.translated_text ]]</td>
+    </tr>
+  </table>
+</div>

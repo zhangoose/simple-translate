@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en" ng-app="translationApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Translate</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'translation/css/style.css' %}"/>
+  </head>
+
+  <body>
+
+    <div ui-view></div>
+
+    <!-- DEPENDENCIES -->
+    <script type="text/javascript" src="/static/translation/lib/angular.min.js"></script>
+    <script type="text/javascript" src="/static/translation/lib/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/static/translation/lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="/static/translation/lib/angular-ui-router.min.js"></script>
+
+    <!-- TRANSLATIONAPP -->
+    <script type="text/javascript" src="/static/translation/js/app.js"></script>
+    <script type="text/javascript" src="/static/translation/js/services.js"></script>
+    <script type="text/javascript" src="/static/translation/js/controllers.js"></script>
+
+  </body>
+
+</html>

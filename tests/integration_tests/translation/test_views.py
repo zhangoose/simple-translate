@@ -25,7 +25,7 @@ def test_list_translations(api_client):
         }
     ]
 
-    response = api_client.get("/translations/", format="json")
+    response = api_client.get("/api/translations/", format="json")
 
     assert response.status_code == 200
     assert response.data == expected_data
@@ -43,7 +43,7 @@ def test_retrieve_translation(api_client):
         "timestamp": "2016-01-01T10:10:10Z"
     }
 
-    response = api_client.get("/translations/{}/".format(translation.id),
+    response = api_client.get("/api/translations/{}/".format(translation.id),
         format="json")
 
     assert response.status_code == 200
@@ -55,7 +55,9 @@ def test_retrieve_translation(api_client):
 def test_delete_translation(api_client):
     translation = mommy.make('translation.Translation')
     
-    response = api_client.delete("/translations/{}/".format(translation.id))
+    response = api_client.delete(
+        "/api/translations/{}/".format(translation.id)
+    )
 
     assert response.status_code == 204
     assert Translation.objects.count() == 0
@@ -91,7 +93,7 @@ def test_create_translation():
     }
 
     response = client.post(
-        "/translations/",
+        "/api/translations/",
         json.dumps(body),
         content_type="application/json"
     )
@@ -129,7 +131,7 @@ def test_create_translation_failure():
     )
 
     response = client.post(
-        "/translations/",
+        "/api/translations/",
         json.dumps(body),
         content_type="application/json"
     )

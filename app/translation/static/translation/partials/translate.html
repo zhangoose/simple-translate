@@ -1,0 +1,29 @@
+<h1>Translate</h1>
+
+<div class="content">
+  <input ng-model="text" placeholder="text to translate"></input>
+  <button ng-click="translate(text)">translate me</button>
+
+  <div ng-hide="translation == undefined || error == true">
+    <p>
+      <span class="highlight">
+        [[ translation.original_text ]]
+      </span>
+      means
+      <span class="highlight">
+        [[ translation.translated_text ]]
+      </span>
+      in the language
+      <span class="highlight">
+        [[ translation.language ]]
+      </span>
+    </p>
+  </div>
+  <div ng-hide="error == false">
+    <p>
+      <span class="error">
+        Error: either text to translate was not entered or translation service (Transltr.org) is down.
+      </span>
+    </span>
+  </div>
+</div>
