@@ -1,5 +1,7 @@
 import pytest
+import mock
 from rest_framework.test import APIClient
+from django.test import override_settings
 from freezegun import freeze_time
 from model_mommy import mommy
 from pytz import UTC
@@ -11,6 +13,7 @@ import json
 from app.translation.models import Translation
 
 
+@override_settings(API_TOKEN="asdf")
 @pytest.mark.django_db
 @freeze_time("2016-01-01 10:10:10")
 def test_list_translations(api_client):
@@ -31,6 +34,7 @@ def test_list_translations(api_client):
     assert response.data == expected_data
     
 
+@override_settings(API_TOKEN="asdf")
 @pytest.mark.django_db
 @freeze_time("2016-01-01 10:10:10")
 def test_retrieve_translation(api_client):
@@ -50,6 +54,7 @@ def test_retrieve_translation(api_client):
     assert response.data == expected_data
 
 
+@override_settings(API_TOKEN="asdf")
 @pytest.mark.django_db
 @freeze_time("2016-01-01 10:10:10")
 def test_delete_translation(api_client):
@@ -63,11 +68,26 @@ def test_delete_translation(api_client):
     assert Translation.objects.count() == 0
 
 
+@override_settings(API_TOKEN="not asdf")
+@pytest.mark.django_db
+@freeze_time("2016-01-01 10:10:10")
+def test_delete_translation_failure(api_client):
+    translation = mommy.make('translation.Translation')
+
+    response = api_client.delete(
+        "/api/translations/{}/".format(translation.id)
+    )
+
+    assert response.status_code == 403
+    
+
+@override_settings(API_TOKEN="asdf")
 @pytest.mark.django_db
 @freeze_time("2016-01-01 10:10:10")
 @httpretty.activate
 def test_create_translation():
     client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION="asdf")
     body = {
         "original_text": "patatas",
     }
@@ -115,10 +135,12 @@ def test_create_translation():
     assert translation.timestamp == datetime(2016, 1, 1, 10, 10, 10, tzinfo=UTC)
 
 
+@override_settings(API_TOKEN="asdf")
 @pytest.mark.django_db
 @httpretty.activate
 def test_create_translation_failure():
     client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION="asdf")
     body = {
         "original_text": "i want this to fail"
     }

@@ -1,7 +1,8 @@
 angular.module('translationApp.services', ['ngResource'])
-    .factory('Translation', function($resource) {
+    .factory('Translation', function($resource, ENV) {
         var headers = {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": ENV.API_TOKEN
         };
 
         return $resource(
