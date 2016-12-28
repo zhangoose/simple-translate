@@ -8,7 +8,7 @@ WIP
 
 ```
 git clone https://github.com/zhangoose/simple-translate.git
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 You should have an `.env` file inside `app/` with the following:
