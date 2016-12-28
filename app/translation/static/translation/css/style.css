@@ -12,6 +12,23 @@ body {
     padding: 0.3em;
 }
 
+/* ============ NAVIGATION ============== */
+
+.navigation {
+    font-size: 1.2em;
+}
+
+.navigation > a {
+    text-decoration: none;
+    padding-right: 0.7em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.navigation .navSelected {
+    background-color: #f8f9bc;
+}
+
 /* ============ TRANSLATE =============== */
 
 .content > input {
