@@ -2,9 +2,9 @@ simple-translate
 ====
 ![travis](https://travis-ci.org/zhangoose/simple-translate.svg?branch=master)
 
-An application that takes inputted text, detect its language, and translate it into English. Also able to display historical translations.
+An application that takes inputted text, detects its language, and translates it into English. Also displays historical translations.
 
-Translations done using [Transltr.org](http://transltr.org/)'s API (thank you!!!).
+Translations are done using [Transltr.org](http://transltr.org/)'s API (thank you!!!).
 
 ![preview](https://d17oy1vhnax1f7.cloudfront.net/items/063y1b0b1J1j2k3h0W3g/Screen%20Recording%202016-12-29%20at%2005.27%20PM.gif?v=9e8e58fe)
 
